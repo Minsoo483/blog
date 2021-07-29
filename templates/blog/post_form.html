@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>글쓰기 창</title>
+</head>
+<body>
+<!-- 파일 업로드에는 반드시 ecnctype 사용 - 멀티로 이원화됨-->
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">저장하기</button>
+  </form>
+</body>
+</html>
