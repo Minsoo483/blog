@@ -9,6 +9,9 @@ urlpatterns = [
     path("", views.index, name='index'),
 
     # 글쓰기 등록
-    path('post_create/', views.post_create, name='post_create')
+    path('post_create/', views.post_create, name='post_create'),
+
+    # 상세 페이지
+    path('<int:post_id>/', views.detail, name='detail')
 
 ]

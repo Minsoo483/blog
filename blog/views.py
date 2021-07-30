@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from blog.forms import PostForm
 from blog.models import Post
@@ -22,3 +22,9 @@ def post_create(request):
         form = PostForm()
     context = {'form': form}
     return render(request, 'blog/post_form.html', context)
+
+def detail(request, post_id):
+    #post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, pk=post_id)
+    context = {'post': post}
+    return render(request, 'blog/post_detail.html', context)

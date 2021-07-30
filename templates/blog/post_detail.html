@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>포스트 상세 내용</title>
+</head>
+<body>
+    <h3>{{ post.title }}</h3>
+    {% if post.photo %}
+    <div>
+        <img src="{{ post.photo.url }}" alt="">
+    </div>
+    {% endif %}
+    <div>
+        <a href="#">수정</a>
+        <a href="#">삭제</a>
+    </div>
+</body>
+</html>

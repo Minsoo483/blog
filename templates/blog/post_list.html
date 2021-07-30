@@ -5,10 +5,16 @@
     <title>블로그 메인</title>
 </head>
 <body>
-    <h2>블로그 게시글</h2>
+    <h3>
+        <a href="{% url 'common:login' %}">로그인</a>
+        <a href="{% url 'blog:post_create' %}">글쓰기</a>
+    </h3>
     {% if post_list %}
         {% for post in post_list %}
-            <p>{{ post.title }}</p>
+            <h2>
+                <a href="{% url 'blog:detail' post.id %}">{{ post.title }}
+                </a>
+            </h2>
             {% if post.photo %}
             <div>
                 <img src="{{ post.photo.url }}" alt="">
@@ -16,8 +22,5 @@
             {% endif %}
         {% endfor %}
     {% endif %}
-    <div>
-        <a href="{% url 'blog:post_create' %}">글쓰기</a>
-    </div>
 </body>
 </html>

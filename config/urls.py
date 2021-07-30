@@ -10,7 +10,9 @@ urlpatterns = [
     # 127.0.0.1:8000/admin/
     path('admin/', admin.site.urls),
     # 127.0.0.1:8000/blog/
-    path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls')),
+
+    path('common/', include('common.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
