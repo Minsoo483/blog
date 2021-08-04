@@ -6,6 +6,7 @@
 </head>
 <body>
   <form method="post" action="{% url 'common:login' %}">
+    {% include 'form_errors.html' %}
     {% csrf_token %}
     <p><label for="username">사용자 ID</label>
     <input type="text" name="username" id="username"

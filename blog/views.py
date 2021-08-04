@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
 
 from blog.forms import PostForm
 from blog.models import Post
@@ -16,6 +17,9 @@ def post_create(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.create_date = timezone.now()
             form.save()
             return redirect('blog:index')
     else:
